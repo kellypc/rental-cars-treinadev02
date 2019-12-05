@@ -10,7 +10,7 @@
       <tr>
         <td>
           <% @car_categories.each do |car_category| %>
-            <%= car_category.name %>
+            <%= link_to car_category.name, car_category %>
             <%= car_category.daily_rate %>
             <%= car_category.car_insurance %>
             <%= car_category.third_party_insurance %>

@@ -5,14 +5,19 @@
         <th>Categorias de carro</th>
       </tr>
       <tr>
-        <td><%= @car_categories.name %></td>
-        <td><%= @car_categories.daily_rate %></td>
-        <td><%= @car_categories.car_insurance %></td>
-        <td><%= @car_categories.third_party_insurance %></td>
+        <td><%= @car_category.name %></td>
+        <td><%= @car_category.daily_rate %></td>
+        <td><%= @car_category.car_insurance %></td>
+        <td><%= @car_category.third_party_insurance %></td>
       </tr>
     </table>
   </div>
   <div class="pt-5">
-    <%= link_to 'Voltar', car_categories_path %>
+    <p>
+      <%= link_to 'Editar', edit_car_category_path(@car_category) %>
+    </p>
+    <p>
+      <%= link_to 'Voltar', car_categories_path %>
+    </p>
   </div>
 </div>

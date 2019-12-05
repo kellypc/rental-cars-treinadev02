@@ -4,20 +4,36 @@ class CarCategoriesController < ApplicationController
   end
 
   def show
-    @car_categories = CarCategory.find(params[:id])
+    @car_category = CarCategory.find(params[:id])
   end
 
   def new
-    @car_categories = CarCategory.new
+    @car_category = CarCategory.new
+  end
+
+  def edit
+    @car_category = CarCategory.find(params[:id])
   end
 
   def create
-    @car_categories = CarCategory.create(car_category_params)
+    @car_category = CarCategory.create(car_category_params)
 
-    if @car_categories.save
-      redirect_to @car_categories
+    if @car_category.save
+      redirect_to @car_category
     else
+      flash.now[:alert] = 'Você deve preencher todos os campos'
       render 'new'
+    end
+  end
+
+  def update
+    @car_category = CarCategory.find(params[:id])
+    if @car_category.update(car_category_params)
+      flash[:notice] = 'Categoria atualizada com sucesso'
+      redirect_to @car_category
+    else
+      flash.now[:alert] = 'Você deve preencher todos os campos'
+      render :edit
     end
   end
 

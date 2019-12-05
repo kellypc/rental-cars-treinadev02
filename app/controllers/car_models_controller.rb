@@ -25,7 +25,6 @@ class CarModelsController < ApplicationController
 
   def show
     @car_model = CarModel.find(params[:id])
-
   end
 
   private
