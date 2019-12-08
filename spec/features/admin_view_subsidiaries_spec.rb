@@ -2,6 +2,9 @@ require 'rails_helper'
 
 feature 'Admin view subsidiaries' do
   scenario 'successfully' do
+    user = User.create!(email: 'test@test.com', password: '123456')
+
+    login_as(user, scope: :user)
     #Arrange
     Subsidiary.create!(name: 'Almeidinha Cars', cnpj: '00.000.000/0000-00',
                        address: 'Alameda Santos, 1293')

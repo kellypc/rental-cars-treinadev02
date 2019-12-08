@@ -2,6 +2,9 @@ require 'rails_helper'
 
 feature 'Admin register subsidiary' do
   scenario 'successfully' do
+    user = User.create!(email: 'test@test.com', password: '123456')
+
+    login_as(user, scope: :user)
     visit root_path
     click_on 'Filiais'
     click_on 'Registrar nova filial'

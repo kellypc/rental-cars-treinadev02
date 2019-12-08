@@ -6,7 +6,7 @@ class CarModelsController < ApplicationController
   def new
     @car_model = CarModel.new
     @manufacturers = Manufacturer.all
-    @categories = CarCategory.all
+    @car_categories = CarCategory.all
   end
 
   def create
@@ -17,7 +17,7 @@ class CarModelsController < ApplicationController
       redirect_to @car_model
     else
       @manufacturers = Manufacturer.all
-      @categories = CarCategory.all
+      @car_categories = CarCategory.all
       flash[:alert] = 'Erro'
       render 'new'
     end

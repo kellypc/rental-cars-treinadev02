@@ -2,6 +2,9 @@ require 'rails_helper'
 
 feature 'Admin view car_categories' do
   scenario 'successfully' do
+    user = User.create!(email: 'test@test.com', password: '123456')
+
+    login_as(user, scope: :user)
     #Arrange
     CarCategory.create!(name: 'Compacto', daily_rate: 39.00,
                        car_insurance: 19.00, third_party_insurance: 14.00)

@@ -2,6 +2,9 @@ require 'rails_helper'
 
 feature 'Admin edits car_category' do
   scenario 'successfully' do
+    user = User.create!(email: 'test@test.com', password: '123456')
+
+    login_as(user, scope: :user)
     CarCategory.create!(name: 'Compacto', daily_rate: 39.00,
                        car_insurance: 19.00, third_party_insurance: 14.00)
 
@@ -23,6 +26,9 @@ feature 'Admin edits car_category' do
   end
 
   scenario 'and must fill in all fields' do
+    user = User.create!(email: 'test@test.com', password: '123456')
+
+    login_as(user, scope: :user)
     CarCategory.create!(name: 'Compacto', daily_rate: 39.00,
                        car_insurance: 19.00, third_party_insurance: 14.00)
 
@@ -41,6 +47,9 @@ feature 'Admin edits car_category' do
   end
 
   scenario 'and must be unique' do
+    user = User.create!(email: 'test@test.com', password: '123456')
+
+    login_as(user, scope: :user)
     CarCategory.create!(name: 'Compacto', daily_rate: 39.00,
                        car_insurance: 19.00, third_party_insurance: 14.00)
     CarCategory.create!(name: 'Pequeno', daily_rate: 45.00,

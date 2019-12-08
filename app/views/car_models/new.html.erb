@@ -24,7 +24,7 @@
   </div>
   <div>
     <%= form.label :car_category_id, 'Categoria' %>
-    <%= form.collection_select(:car_category_id, @categories, :id, :name )%>
+    <%= form.collection_select(:car_category_id, @car_categories, :id, :name )%>
   </div>
 
   <%= form.submit 'Enviar'%>
