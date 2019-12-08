@@ -16,7 +16,7 @@ class RentalsController < ApplicationController
     else
       @car_categories = CarCategory.all
       @clients = Client.all
-      flash[:alert] = 'Erro'
+      flash.now[:alert] = 'Você deve preencher todos os campos'
       render 'new'
     end
   end

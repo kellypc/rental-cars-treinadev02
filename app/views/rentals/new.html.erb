@@ -1,4 +1,13 @@
 <div class="form-rental">
+  <% if @rental.errors.any? %>
+    <p>Você deve corrigir os seguintes erros:</p>
+    <ul>
+      <% @rental.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
   <%= form_for @rental do |form| %>
     <p>
       <%= form.label :start_date, 'Data de início' %><br>
