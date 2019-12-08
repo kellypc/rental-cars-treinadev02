@@ -1,10 +1,6 @@
 <div class="form-rental">
   <%= form_for @rental do |form| %>
     <p>
-      <%= form.label :client_id, 'Cliente' %><br>
-      <%= form.text_field :client_id %>
-    </p>
-    <p>
       <%= form.label :start_date, 'Data de início' %><br>
       <%= form.text_field :start_date %>
     </p>
@@ -12,6 +8,10 @@
       <%= form.label :end_date, 'Data final' %><br>
       <%= form.text_field :end_date %>
     </p>
+    <div>
+      <%= form.label :client_id, 'Cliente' %>
+      <%= form.collection_select(:client_id, @clients, :id, :name) %>
+    </div>
     <div>
       <%= form.label :car_category_id, 'Categoria' %>
       <%= form.collection_select(:car_category_id, @car_categories, :id, :name )%>
